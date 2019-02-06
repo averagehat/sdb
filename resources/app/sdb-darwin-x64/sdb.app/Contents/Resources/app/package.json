@@ -1,0 +1,31 @@
+{
+  "name": "sdb",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^3.4.0",
+    "electron": "^1.6.1",
+    "electron-packager": "^8.5.2",
+    "react-scripts": "0.9.3",
+    "wait-on": "^2.0.2"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "babyparse": "^0.4.6",
+    "papaparse": "^4.3.3",
+    "electron-is-dev": "^0.3.0"
+  },
+  "main": "main.js",
+  "homepage": "./",
+  "scripts": {
+    "react-start": "react-scripts start",
+    "electron-start": "electron .",
+    "start": "concurrently 'yarn react-start' 'wait-on http://localhost:3000/ && yarn electron-start'",
+    "react-build": "react-scripts build",
+    "electron-build": "electron-packager ./ --overwrite",
+    "build": "yarn react-build && yarn electron-build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
